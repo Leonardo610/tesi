@@ -20,25 +20,25 @@
 % DEFINIZIONE DEGLI ENVIRONMENT
 %-------------------------------
 
-\newtheorem{obs}{Osservazione}[section]
-\newenvironment{oss}
-    {\begin{obs}\begin{normalfont}}
-    {\hfill $\square \!\!\!\!\checkmark$ \end{normalfont}\end{obs}}
+%newtheorem{obs}{Osservazione}[section]
+%newenvironment{oss}
+%   {\begin{obs}\begin{normalfont}}
+%   {\hfill $\square \!\!\!\!\checkmark$ \end{normalfont}\end{obs}}
 
-\newtheorem{pro}{Problema}[chapter]
-\newenvironment{prob}
-    {\begin{pro}\begin{normalfont}}
-    {\hfill $\spadesuit$ \end{normalfont}\end{pro}}
+%newtheorem{pro}{Problema}[chapter]
+%newenvironment{prob}
+%   {\begin{pro}\begin{normalfont}}
+%   {\hfill $\spadesuit$ \end{normalfont}\end{pro}}
 
-\newtheorem{teor}{Teorema}[section]
-\newenvironment{teorema}
-    {\begin{teor}\textit }
-    {\hfill  \end{teor}}
+%newtheorem{teor}{Teorema}[section]
+%newenvironment{teorema}
+%   {\begin{teor}\textit }
+%   {\hfill  \end{teor}}
 
-\newtheorem{defn}{Definizione}[section]
-\newenvironment{de}
-    {\begin{defn}\begin{normalfont}}
-    {\hfill $\clubsuit$ \end{normalfont}\end{defn}}
+%newtheorem{defn}{Definizione}[section]
+%newenvironment{de}
+%   {\begin{defn}\begin{normalfont}}
+%   {\hfill $\clubsuit$ \end{normalfont}\end{defn}}
 
 %-----------------------------
 % CONFIGURAZIONE DELLA PAGINA
@@ -73,7 +73,7 @@
 
 \dedicate{Ai miei nonni.}
 
-\corso{INGEGNERIA INFORMATICA} \titoloTesi{CASO DI STUDIO ED APPLICAZIONE DI UNA PIATTAFORMA DEVOPS IN UN'AZIENDA DI GRANDI DIMENSIONI} \ciclo{Ciclo}
+\corso{INGEGNERIA INFORMATICA} \titoloTesi{CASO DI STUDIO ED APPLICAZIONE DI UNA SOLUZIONE DEVOPS IN AMBIENTE ENTERPRISE} \ciclo{Ciclo}
 \anno{2018-2019}
 \relatore{Prof. Maurizio Patrignani}
 \autore{Leonardo Albanese}
@@ -107,10 +107,32 @@
 
 \pagenumbering{arabic}
 
-\fancyhead[R]{Introduzione} \fancyfoot[L]{Introduzione}
+\fancyhf{} %elimina header/footer vecchi
+
+\fancyhead[R]{Introduzione}\fancyfoot[L]{Introduzione}
 \fancyfoot[R]{\thepage}
 
 \include{Introduzione}
+
+\chapter*{Introduzione}
+\addcontentsline{toc}{chapter}{Introduzione}
+
+Questa tesi, svolta all'interno di una grande azienda di telecomunicazioni, si propone come obiettivo l'illustrazione di una possibile implementazione di una piattaforma per l'applicazione della metodologia DevOps in un ambiente enterprise internazionale di elevata complessità. La necessità di conciliare processi blindati e consolidati da anni con i nuovi ritmi dettati dalla competizione sempre più accesa permettono di evidenziare i benefici che una simile soluzione possa portare all'interno di contesti simili.\\
+Questo documento espone i requisiti che un'organizzazione aziendale deve avere per poter applicare correttamente questo tipo di tecnologia, i processi decisionali che hanno portato alla definizione dell'infrastruttura di supporto ed all'utilizzo dei software e delle tecnologie necessarie ed infine la dimostrazione pratica del funzionamento dell'infrastruttura, correlata da alcuni esempi tecnici e diagrammi di sequenza.\\
+Nel capitolo \ref{motivazioni} sono descritte le ragioni per cui la competitività del mercato e l'introduzione di nuovi trend tecnologici abbiano portato alla necessità di uno svecchiamento dei vecchi processi, che tuttavia non possono essere completamente dismessi in funzione delle nuove metodologie, ma che vanno invece modificati ed integrati dove possibile, dando vita ad una soluzione unica per l'azienda che la vuole utilizzare, ma anche ad un modello per altre aziende che vivono un simile contesto.\\
+Nel capitolo \ref{metodologie} sono elencate le metodologie che vengono studiate ed applicate per il design dell'infrastruttura e per la scelta dei software da utilizzare, assieme ad un confronto con i processi attuali. Per ogni metodologia è fornita una descrizione generale con i riferimenti alla letteratura per un eventuale approfondimento.\\
+Nel capitolo \ref{tecnologie} sono elencate le tecnologie alla base dei software che compongono l'infrastruttura, con una descrizione generale del loro funzionamento e riferimenti alla documentazione per un eventuale approfondimento.\\
+Nel capitolo \ref{requisiti} viene fornita una visione generale delle attuali organizzazioni aziendali, in contrasto con le nuove tecnologie. Quindi viene fornito un esempio di nuova organizzazione in linea con i principi dell'Agile, assieme ai requisiti di natura funzionale e tecnica che la soluzione caso di studio deve soddisfare.\\
+Nel capitolo \ref{teams} sono elencati i team che prendono parte nel processo della soluzione DevOps, confrontando l'evoluzione che hanno i loro compiti dal processo attuale all'utilizzo delle nuove metodologie.\\
+Nel capitolo \ref{software} è descritto il processo decisionale che porta alla scelta dei software per ogni componente dell'infrastruttura, assieme ad uno studio sulla scelta tra strumenti open source e proprietari.\\
+Nel capitolo \ref{concetti-devops} vengono descritte le componenti tecniche, in termini di workflow e componenti, che vengono utilizzate per integrare al loro interno qualsiasi tipologia di sviluppo software, da applicazioni monolitiche a quelle a microservizi.
+Nel capitolo \ref{tech} sono approfonditi due dei processi inclusi all'interno della piattaforma, quelli nei quali ho preso parte attivamente, correlati da diagrammi di sequenza, che mostrano le comunicazioni infrastrutturali tra i componenti che fanno parte della piattaforma DevOps, relativamente ad un'applicazione a microservizi.\\
+Nel capitolo \ref{piattaforma-devops} sono mostrati i flussi integrati all'interno della soluzione DevOps, che comprendono tutte le tipologie di aggiornamenti software, in modo da mostrare come tale tecnologia possa essere indipendente dalle tecnologie utilizzate.\\
+Nel capitolo \ref{conclusioni} sono tratte le conclusioni e osservati dove possibili i benefici della soluzione implementata, in termini di prima e dopo.\\
+Questo documento, dovendo osservare i limiti imposti dalla politica della divulgazione di materiale aziendale, non intende essere un manuale applicativo, perciò alcuni aspetti tecnici sono volutamente descritti in maniera superficiale.
+\newpage
+
+
 
 \fancyhf{} %elimina header/footer vecchi
 
@@ -120,18 +142,13 @@
 
 
 
-\chapter*{Introduzione}
-\addcontentsline{toc}{chapter}{Introduzione}
-Questa tesi si propone come obiettivo quello di illustrare una possibile applicazione di una soluzione DevOps nell’ambito enterprise, agnostica nei confronti dei sistemi e delle tecnologie utilizzate dai sistemi stessi.
-L’attenzione della tesi pone maggiore focus sulle maggiore efficienza tecnica e di business che un approccio del genere introduce su un prodotto IT e sull’impatto che provoca sulle parti coinvolte nel rilascio del software.
-La tesi segue il processo durante la definizione dell’infrastruttura necessaria per l’implementazione della soluzione, la definizione dei Workflow e dei ruoli rivestiti da ciascuna delle parti coinvolte nel processo di rilascio (Dev, UAT, QA, Security e Operations).
+
 
 %---------------------
 % INCLUSIONE CAPITOLI
 %---------------------
 
-
-\chapter{Motivazioni}
+\chapter{Motivazioni}\label{motivazioni}
 Il tema dell’Agile e di tutto ciò che è di contorno, compresa la filosofia DevOps, nonostante abbia cominciato a svilupparsi agli inizi del 2000, è ancora un argomento di discussione, studio e metodologie di applicazione. Per la sua effettiva capacità di portare maggiore efficienza e snellimento dei processi un numero sempre maggiore di organizzazioni vi si avvicina per poter accrescere la propria competitività nel mercato.\\
 Le migliori applicatrici delle pratiche Agile e DevOps sono le startup, piccole aziende, normalmente nate negli ultimi 5-10 anni, con un numero ristretto di dipendenti, solitamente giovani e che quindi hanno iniziato a sviluppare prodotti già secondo queste metodologie e perciò non influenzati da bad practice pregresse.\\
 In queste nuove realtà, dove il contesto di applicazione della DevOps è una tabula rasa su cui poter lavorare in completa libertà, si tende a seguire pedissequamente la letteratura, ma questo approccio non è applicabile ad organizzazioni strutturalmente molto più complesse di dimensioni spesso internazionali, perché vi sono restrizioni dettate dall’organizzazione aziendale, dalla difficoltà di aprirsi al cambiamento e dalla presenza di processi interni dell’azienda che spesso si trovano in contrasto con le pratiche Agile.
@@ -142,7 +159,7 @@ in pratica e la verifica di correttezza del processo, mostrando perciò i legami
 intercorrono tra un'applicazione con tale struttura e le metodologie Agile.
 
 
-\chapter{Metodologie applicate}
+\chapter{Metodologie applicate}\label{metodologie}
 In questo capitolo vengono elencate le tecnologie utilizzate per la realizzazione dell’infrastruttura e l’organizzazione dei task. 
 \section{Metodologia Agile}\label{agile}
 Questo paragrafo intende esporre la metodologia Agile nei suoi aspetti ed obiettivi principali, per approfondimenti sull’argomento si rimanda alla consultazione degli articoli citati a piè di pagina.\\
@@ -180,9 +197,6 @@ Il termine \emph{DevOps} deriva dalla contrazione dei due termini inglesi “Dev
 Uno dei maggiori vantaggi nell’adozione di un approccio di questo tipo è l’abilitazione della Continuous Delivery \cite{chen-devops}, ovvero il rilascio continuo di software attraverso una sequenza di step sottoposti a feedback continui per sottoporre il processo stesso ad un miglioramento continuo e per garantire la miglior qualità possibile dei rilasci.\\
 Relativamente allo sviluppo di architetture a microservizi, dove il rilascio di nuove funzionalità del software possono avvenire in maniera indipendente tra un componente e l’altro, la DevOps e la CD trovano la loro applicazione più naturale \cite{balalaie-devops}.
 La pratica della DevOps trova le fondamenta della sua esistenza nella metodologia Agile, tanto che la mancanza della seconda non potrebbe portare ad una corretta adozione della prima \cite{lwakatare-devops}, in quanto la necessità di adattarsi ai cambiamenti è favorita dalla possibilità di poter effettuare rilasci frequenti, automatici e ripetibili.
-
-\chapter{Tecnologie utilizzate}
-In questo capitolo sono elencate le tecnologie utilizzate all’interno del progetto. Nei capitoli successivi viene descritto il loro utilizzo più pertinentemente alla piattaforma DevOps.
 
 \section{Continuous Delivery/Deployment/Integration}
 Nell'approccio tradizionale il rilascio del software consiste nell’esecuzione di una sequenza di istruzioni, descritte in una dettagliata documentazione, attraverso comandi impartiti da interfaccia testuale. Questo approccio, oltre a causare nell’addetto alle Operations una sensazione di “incubo” del rilascio, introduce un’elevata probabilità d’errore umano. \\
@@ -228,6 +242,11 @@ L’introduzione di automatismi non riguarda solamente le fasi di build e di ril
 Ad oggi l'approccio “infrastructure-as-code” comprende tutti quegli automatismi che non riguardano il rilascio del software stesso \cite{hutterman-iac}, quindi legati sia all'infrastruttura che alla configurazione delle macchine che la compongono.\\
 Applicativi come Terraform si interfacciano con la piattaforma cloud per configurare le risorse necessarie alla creazione dell’ambiente, altre, come Ansible, Puppet e Chef, si occupano di configurare la macchina eseguendo dei comandi sulle macchine che la compongono.\\
 I software di Infrastructure as Code tendenzialmente prevedono la presenza di due tipologie di macchine: nodi e server controllori. I file di configurazione si trovano sulla macchina controllore che poi, tramite un agent, o una connessione SSH (nel caso di Ansible), li eseguono sul nodo garantendo che lo stato della macchina sia sempre quello desiderato.
+
+
+\chapter{Tecnologie utilizzate}\label{tecnologie}
+In questo capitolo sono elencate le tecnologie utilizzate all’interno del progetto. Nei capitoli successivi viene descritto il loro utilizzo più pertinentemente alla piattaforma DevOps.
+
 \section{Tracciatore di issue/bug}
 Un tracciatore di issue è un software che ha lo scopo di mantenere uno storico delle segnalazioni degli utenti, bug, nuove iniziative sul software, etc. 
 Solitamente è costituito da un database e un’interfaccia via browser che fornisce servizi di ricerca testuale o tramite l’inserimento di query.\\
@@ -366,7 +385,7 @@ Un altro spunto d’interesse per lo studio di applicazione della DevOps è quel
 Un numero elevato di sviluppatori e, di conseguenza, modifiche al codice che possono essere eseguite in parallelo, porta alla necessità di mantenere frequentemente allineati gli ambienti con le versioni del codice, ciò si traduce nell’uso di commit frequenti e regolari. Questa tipologia di approccio, chiamata in letteratura con il nome di Continuous Integration, ha bisogno di un software adeguato, che possa essere raggiungibile da qualsiasi punto dell’infrastruttura, con la funzione di “mente” di tutta la piattaforma DevOps.
 
 
-\chapter{Parti coinvolte nel processo DevOps}
+\chapter{Parti coinvolte nel processo DevOps}\label{teams}
 In \ref{devops} si è spiegato come la DevOps non sia solamente un’automatizzazione dei processi, ma  anche e soprattutto una filosofia che coinvolge i team e li spinge a lavorare in maniera più agile, per questo è utile definire quali sono i team IT che vengono coinvolti all’interno del processo, illustrandone brevemente i cambiamenti che porta l’adozione di una piattaforma DevOps nei confronti del tradizionale metodo a cascata.\\
 In un contesto aziendale di grandi dimensioni, implementare uno stato dell’arte di una piattaforma DevOps risulta complesso in breve tempo, per questo è stato introdotto il concetto di “champion”, ovvero di esperto di un determinato settore che fornisce supporto al team di un altro settore.
 
@@ -410,7 +429,7 @@ Occupa una posizione trasversale rispetto agli altri team, avendo il compito di 
 Inoltre è responsabile dell’onboarding di ogni nuovo sistema all’interno della piattaforma realizzata, disegnando il processo in collaborazione con i diversi team coinvolti e implementandone la soluzione.
 
 
-\chapter{Analisi e scelta dei software}
+\chapter{Analisi e scelta dei software}\label{software}
 Nel corso del progetto ho preso parte alle fasi finale dei processi di decisione, assieme agli ingegneri Alessandro Casula e Massimiliano Romano, dove erano già stati definiti i componenti, ma non gli strumenti da utilizzare. Durante le fasi di analisi è emerso spesso il contrasto nella scelta di software open source o proprietario, perciò ho inserito un breve paragrafo di ricerca sulle motivazioni che possono portare a sceglierne uno nei confronti dell'altro.  In questo capitolo sono elencati i risultati delle sopracitate riunioni e le conclusioni che ne sono state tratte.
 
 \section{Confronto software open-source e proprietario}
@@ -646,7 +665,7 @@ Come altri tool di configurazione automatica come Chef e Puppet, è organizzato 
 Risulta preferibile rispetto ad altri strumenti per la sua architettura agentless, cioè non necessità di alcun demone Ansible sul nodo, ma soltanto di un server SSH, permettendo così un minore utilizzo di risorse di rete.
 
 
-\chapter{Concetti di base della Piattaforma DevOps}
+\chapter{Concetti di base della Piattaforma DevOps}\label{concetti-devops}
 In questo capitolo sono descritti gli elementi di Jira che sono stati customizzati ad hoc per il processo DevOps, in maniera tale da garantire il rispetto dei requisiti di sicurezza ed automazione .\\
 Jira e Confluence rappresentano il punto di partenza per ogni iniziativa che voglia utilizzare la piattaforma di DevOps. Per poter cominciare ad utilizzare la piattaforma, bisogna anzitutto creare un progetto su Jira ed uno “space” relativo su Confluence, ovvero un folder che contiene tutta la documentazione dell'iniziativa, compresi i requisiti da sviluppare.\\
 Avendo la funzione di master di tutto il processo, Jira descrive dei workflow per ogni tipologia di intervento sul software, tali flussi sono:
@@ -754,12 +773,23 @@ La struttura di una RN deve essere identica a prescindere dalle modifiche effett
 \end{verbatim}
 La RN è strutturata in modo da avere diverse tabelle, per ogni componente nella lista \emph{components} viene aggiunta una riga alla tabella d'interesse facendo un check sull'elemento e, nel caso esso sia null, restituisce una casella vuota.\\
 La pipeline eseguita da Jenkins per la scrittura e l'invio tramite la REST API a Confluence, viene eseguita all'interno del workflow di Release, quando viene eseguito il rilascio nell'ambiente di UAT. \\
-Il flusso è definito in \ref{fig:relNote}, similmente alla procedura per il DevSubtask, la richiesta viene inoltrata al Jenkins dispatcher che a sua volta invoca un nodo di Jenkins per la preparazione e l'invio della pagina a Confluence, essendo un task che non richiede alcuna specializzazione, può essere eseguito dal primo nodo disponibile.\\
-Il nodo di Jenkins incaricato della preparazione del file HTML, che verrà successivamente pubblicato su Confluence, si occupa di prelevare tramite REST API le informazioni dagli oggetti contenuti nella issue di Release su Jira e di utilizzarli per recuperare le informazioni dalla console di Openshift tramite il plugin dedicato. Raccolte tutte le informazioni necessarie, un metodo della pipeline provvede ad utilizzarli per riempire i campi e per ottenere la RN per la issue di Release corrispondente. Lo step successivo consiste nel postare il documento su Confluence, creando, se non ancora presente, lo space dedicato al progetto e pubblicando la pagina con il titolo relativo alla fix version, anch'essa recuperata dinamicamente. Al termine di questo step, Jenkins utilizza l'ultimo stadio della pipeline per impacchettare la mail con il collegamento alla RN ed inviarla agli interessati, ovvero il team di UAT.\\
-In questo modo in un unico punto di accesso su Confluence, i team che collaborano al medesimo progetto possono consultare le informazioni relative ad ogni rilascio.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{imgs/ReleaseNoteFlow.png}
+    \caption{Flusso descrittivo della pubblicazione della RN su Confluence}
+    \label{fig:relNote}
+\end{figure}
+Il flusso di riferimento è descritto in \ref{fig:relNote}, il trigger è scatenato nel momento in cui l'oggetto Release entra nello stato "Deployed in UAT". Come per la pipeline relativa al subtask di sviluppo, anche in questo caso viene invocato il Jenkins dispatcher che però ora può scegliere un nodo non specializzato perché l'operazione non richiede l'utilizzo di strumenti ad hoc. Il nodo slave scelto dal dispatcher invia una richiesta tramite le REST API per ottenere tutti i componenti che sono inclusi all'interno dell'oggetto Release (passato come parametro al dispatcher) e li salva all'interno di strutture dati per poter essere riutilizzati successivamente (1), stessa cosa avviene per i progetti in cui sono contenuti tali componenti, recuperati tramite il plugin per l'Openshift Container Platform, offerto da Jenkins (2). A questo punto la pipeline ha a disposizione tutte le informazioni necessarie per compilare la RN. Viene inizializzata l'istanza del Velocity Engine e viene scaricato il template HTML da popolare da un repository di Bitbucket. Le strutture dati vengono manipolate in maniera tale da rendere più semplice la visualizzazione nella RN e vengono passate al contesto dato dal template. \\
+Una volta che il codice HTML della pagina è pronto per essere pubblicato, tramite una REST API viene invocata la creazione di uno space su Confluence utilizzando la key del progetto come nome, se tale space è già presente (ovvero è già stata pubblicata una RN in precedenza) lo step viene saltato pubblicando direttamente la RN con il titolo projectKey-fixVersion (3). Ultimata la pubblicazione, il link della pagina viene restituito allo slave che lo utilizza per confezionare un commento che viene pubblicato nella pagina riepilogativa della Release su Jira e una mail da inviare ai membri del team di UAT, recuperati da Jira (4). Infine il flusso termina restituendo il controllo al dispatcher che considera terminato il processo (5).\\
+Grazie a questo automatismo, lo scambio di informazioni risulta più immediato, più robusto e concentrato in un unico strumento, dove qualunque interessato può visionare ciò che serve, riducendo la probabilità che ci possano essere mancanze od errori. In \ref{fig:release-note} si può vedere un esempio di RN.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{imgs/release-note.png}
+    \caption{Esempio di Release Note.}
+    \label{fig:release-note}
+\end{figure}
 
-
-\chapter{Caso d'uso}
+\chapter{Caso d'uso}\label{piattaforma-devops}
 In questo capitolo è mostrato un esempio di utilizzo della piattaforma da parte di un'applicazione a microservizi, simulando le diverse richieste di business e tecniche previste nei requisiti.
 \section{Implementazione Story o correzione Bug}
 Quanto esposto in questo paragrafo descrive il processo relativo ad una user story, ma è applicabile anche alla risoluzione di un bug.\\
@@ -862,14 +892,8 @@ A seconda delle Story che sono comprese nella Release, automaticamente vengono c
 Quando viene eseguito il trigger di “Prepare Package” sia la Release che i DeploySubtask entrano nello stato di “PACKAGE PREPARATION” e automaticamente viene creato un branch nella forma “release/fix-version-number” a partire dal branch develop. Una volta terminata la preparazione e che tutti i DeploySubtask entrano nello stato “READY TO DEPLOY”, lo stato della Release viene aggiornato a “READY TO RELEASE”.\\
 A questo punto è possibile eseguire il rilascio nell’ambiente di TEST tramite l’esecuzione del comando “Release”, una volta terminato il processo, la Release passa nello stato “RELEASED ON TEST” e le Story collegate passano nello stato “DEPLOYED ON TEST”.\\
 Per poter passare all’ambiente successivo, le Story devono essere validate nell’ambiente di TEST dal team di sviluppo. Quando tutte le Story sono nello stato “VALIDATED ON TEST”, la Release passa in “APPROVAL FOR UAT”.\\
-In questo punto del processo viene inviata una notifica al team di UAT con un link ad una Release Note\footnote{Documento che elenca le modifiche introdotte sul software nella release in oggetto.}, creata in automatico tramite un template HTML popolato con Velocity e pubblicato su Confluence in uno space dedicato per il progetto, dove sono elencate le informazioni necessarie per prendere rapidamente visione di ciò che è stato implementato.\\
-Un membro del team di UAT può cliccare sul trigger “Release ready” facendo aggiornare in automatico il campo “Release environment” con il valore “UAT”. Quindi si può eseguire il trigger di “Release” che scatena gli stessi passaggi visti nel rilascio nell’ambiente di TEST.
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\textwidth]{imgs/release-note.png}
-    \caption{Esempio di Release Note.}
-    \label{fig:release-note}
-\end{figure}
+In questo punto del processo viene inviata una notifica al team di UAT con un link ad una Release Note\footnote{Documento che elenca le modifiche introdotte sul software nella release in oggetto.}, creata in automatico tramite un template HTML popolato con Velocity e pubblicato su Confluence in uno space dedicato per il progetto, dove sono elencate le informazioni necessarie per prendere rapidamente visione di ciò che è stato implementato (vedi figura \ref{fig:release-note}).\\
+Un membro del team di UAT può cliccare sul trigger “Release ready” facendo aggiornare in automatico il campo “Release environment” con il valore “UAT”. Quindi si può eseguire il trigger di “Release” che scatena gli stessi passaggi visti nel rilascio nell’ambiente di TEST.\\
 Terminato il processo di rilascio, il team di UAT può eseguire i test End-to-End e verificare che tutto si comporti secondo attese e lo stato della Release viene aggiornato a “RELEASED ON UAT”, i DeploySubtask risultano “DEPLOYED” e le Story “VALIDATED ON UAT”.\\
 Per abilitare lo step successivo, una volta terminati i test, il team di UAT clicca sul trigger “APPROVAL FOR PROD”, dopodiché il processo provvede ad inviare una notifica con allegata la Release Note al team di Operations, che provvede a loggarsi e a cliccare su “RELEASE READY” per aggiornare il campo di “release environment” al valore di “PROD” e gli stati dei DeploySubtask e delle Story. Infine il team clicca sul comando “Go Live” per lanciare la procedura di rilascio nell’ambiente di produzione.\\
 Se la procedura va a buon fine, ad ogni DeploySubtask vengono aggiunti dei campi per evidenziare la versione corrente rilasciata e la versione precedente (utile in caso di rollback).
@@ -882,10 +906,10 @@ Se la procedura va a buon fine, ad ogni DeploySubtask vengono aggiunti dei campi
 A questo punto del processo, le funzionalità sono online e disponibili agli utenti. In caso di malfunzionamenti critici è sempre possibile effettuare una procedura di rollback effettuando una Release della versione precedente dei DeploySubtask.
 
 
-\chapter{Risultati raggiunti}
+%\chapter{Risultati raggiunti}
 
 % CONCLUSIONI
-\chapter*{Conclusioni}
+\chapter*{Conclusioni}\label{conclusioni}
 \addcontentsline{toc}{chapter}{Conclusioni}
 
 
